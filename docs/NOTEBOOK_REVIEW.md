@@ -11,7 +11,7 @@ All 85 original cell sources and outputs are preserved in order. Ten navigation/
 - Five MLP and five Random Forest corrected runs are stored.
 - Final original cell 84 contains a completed corrected VQC seed-42 run: MAE 0.4149 kW, MSE 0.4177 kW², 478.4 seconds, 50 iterations, iteration-limit termination.
 - No stored error outputs were found in the submitted copy.
-- No battery scheduler or QAOA implementation is present.
+- No battery scheduler or QAOA implementation is present **inside this notebook**. The separately supplied classical scheduler is now in `src/battery_scheduler.py`, with 14 passing tests under `tests/`; QAOA remains pending.
 
 ## Remaining reproducibility work
 
