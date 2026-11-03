@@ -16,8 +16,9 @@ Done when the optimum of the chosen discrete problem is verifiable, not merely w
 
 ## Week 2 — QAOA and remaining forecasting protocol
 
-- [ ] Specify binary variables, auxiliary variables, penalties, Hamiltonian, mixer, and qubit count.
-- [ ] Verify encoding against exact enumeration on the same instances.
+- [x] Specify a 12-qubit direct action encoding, diagonal penalty Hamiltonian, uniform initialization, and planned X mixer (see `QAOA_ENCODING.md`; no auxiliary qubits in the abstract oracle).
+- [ ] Implement and independently verify the QAOA circuit. The dense cost table is a simulator prototype, not an efficient QUBO or hardware synthesis.
+- [x] Verify S01 encoding against exact enumeration over all 4,096 basis states; repeat for any changed scenario.
 - [ ] Record sampled feasibility and feasible solution quality.
 - [ ] Complete predefined corrected forecasting runs without adding new architectures.
 - [ ] Finalize methods and a focused verified related-work matrix.

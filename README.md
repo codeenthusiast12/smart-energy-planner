@@ -8,7 +8,7 @@ This capstone investigates whether differences in demand forecasts translate int
 
 ## Current status
 
-Forecasting, a classical battery simulator, and an exact discrete scheduler are implemented. The scheduler's 14 supplied tests pass. QAOA and integrated operational evaluation are **not yet implemented**. A documented synthetic classical example is available; no quantum advantage, measured household savings, or final test performance is claimed.
+Forecasting, a classical battery simulator, and an exact discrete scheduler are implemented. The scheduler's 14 supplied tests pass. The binary encoding and diagonal cost model for QAOA are exhaustively verified; QAOA circuit training and integrated operational evaluation are **not yet implemented**. A documented synthetic classical example is available; no quantum advantage, measured household savings, or final test performance is claimed.
 
 The notebook includes the exploration history and a corrected limited-data experiment. The corrected protocol uses 500 fixed training examples from 2007–2008, 8,602 validation examples from 2009, and preprocessing fitted exclusively on those 500 training examples. The 2010 test period remains reserved.
 
@@ -97,7 +97,7 @@ python scripts/run_scheduling_scenario.py
 
 ## Next milestone
 
-Implement and verify QAOA encoding against the documented exact discrete scheduler, preserving identical inputs and constraints. Forecasting improvements alone do not demonstrate energy-cost savings.
+Implement and independently check the QAOA cost-phase and mixer circuit, then run a small fixed-budget experiment. The [12-qubit binary encoding](docs/QAOA_ENCODING.md) now reproduces the S01 optimum across all 4,096 states. This is a dense diagonal simulator prototype, not an efficient QUBO construction. Forecasting improvements alone do not demonstrate energy-cost savings.
 
 ## Publication and licensing
 

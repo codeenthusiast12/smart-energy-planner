@@ -1,0 +1,28 @@
+{
+  "scenario_id": "S01",
+  "verification": "passed",
+  "qubits": 12,
+  "basis_states": 4096,
+  "valid_action_schedules": 625,
+  "unused_code_states": 3471,
+  "physically_infeasible_schedules": 557,
+  "feasible_schedules": 68,
+  "uniform_feasible_probability": 0.0166015625,
+  "feasible_cost_upper_bound_cu": 2.76,
+  "penalty_cu": 3.76,
+  "ground_energy_cu": 0.195,
+  "ground_state_count": 1,
+  "ground_state_indices": [
+    730
+  ],
+  "ground_state_bitstrings": [
+    "001011011010"
+  ],
+  "exact_selected_index": 730,
+  "exact_selected_bitstring": "001011011010",
+  "qaoa_training_performed": false,
+  "source_hashes": {
+    "binary_encoding.py": "cf920627bb98e5378fa605c3ca517541c558cc3ffd8eb97627ade3dcb3093521",
+    "battery_scheduler.py": "5636d206b3accc98fff46b7db8febfcfab19318d0ab65938a48c5a1ea4eba445"
+  }
+}

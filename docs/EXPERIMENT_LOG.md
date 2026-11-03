@@ -40,3 +40,7 @@ Status reconstructed from the uploaded notebook and its saved outputs on 3 Novem
 ## S01 — synthetic exact scheduling example, 3 November 2026
 
 Purpose: establish a saved classical reference for QAOA. Reused the existing cost-consistency test fixture; no forecasting or test-period data used. Enumerated 625 schedules with 68 feasible. Selected actions: (0, +1, +1, −1) kW. Exact cost: 0.195 CU; idle-battery cost: 0.295 CU. Final energy: 3.347368421052632 kWh. Selected-trajectory energy balance, energy update, bounds, terminal energy, and import-cost assertions passed. Configuration, full trajectories, all candidate feasibility records, Table 4, and Figure 2 are saved. See [SCENARIO_01.md](SCENARIO_01.md). Next: verify QAOA encoding on the identical discrete problem.
+
+## S01 binary encoding verification — 3 November 2026
+
+Three bits per interval encode the five battery actions; four intervals require 12 qubits. Exhaustive verification passed for all 4,096 basis states: 625 valid-code schedules, 68 physically feasible, and one minimum-energy state (index 730, displayed string 001011011010) with cost 0.195 CU. All infeasible states receive 3.76 CU; the feasible-cost upper bound is 2.76 CU. Uniform feasible probability is 1.66015625%. Saved the cost diagonal, feasibility masks, and verification summary with source hashes. See [QAOA_ENCODING.md](QAOA_ENCODING.md). No quantum circuit was trained. Next: verify cost-phase/mixer implementation and measure small-instance QAOA performance against equal-budget uniform sampling.
