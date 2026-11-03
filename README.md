@@ -79,4 +79,17 @@ Implement a four-hour battery simulator and exact discrete scheduler. Verify ene
 
 ## Publication and licensing
 
-This is a working research repository. A software license has not yet been selected. Dataset terms remain separate. Confirm the supervisor's publication expectations before making the repository public.
+This is a working research repository. A software license has not yet been selected. Dataset terms remain separate. GitHub reports this repository as public as of 3 November 2026. Supervisor publication approval has not been recorded here; confirm publication expectations with the supervisor. No visibility change was made during this audit.
+
+
+### Test-period coverage and reporting
+
+The reserved test set is the **available portion of 2010**, not a full calendar year. UCI describes the dataset as ending in November 2010 (https://archive.ics.uci.edu/dataset/235/individual+household+electric+power+consumption). Before final evaluation, export the exact first/last eligible timestamps, four-input row count, and monthly coverage from the processed data. Those processed endpoints and counts have not yet been audited. Report cost and energy over the observed interval, with per-day or per-kWh normalizations where appropriate; do not label partial-period totals annual savings or extrapolate seasonal performance to a full year.
+
+### Evidence status
+
+No scheduler, battery-simulation implementation, QAOA implementation, or associated 12-test suite was located in this chat's accessible workspace during the 3 November audit. The claim of “12 passing tests” is unverified and must not be cited. This does not establish what exists in a separate inaccessible workspace. Scheduling remains planned until code and verifiable test output are committed.
+
+The rounded result CSVs are presentation transcriptions, not full-precision experimental artifacts. Export timestamp-aligned predictions, targets, model parameters, preprocessing state, and per-run diagnostics from the live experiment runtime; rerun only where those artifacts cannot be recovered. Recompute final statistics from these exports before final tables.
+
+**Current numerical interpretation:** the single corrected VQC run (0.4149 kW) has lower MAE than persistence (0.4291), slightly higher MAE than linear regression (0.4147), and higher MAE than the five-run MLP mean (0.3960). The 0.0002 kW gap to linear regression does not establish equivalence or a statistically reliable difference.
