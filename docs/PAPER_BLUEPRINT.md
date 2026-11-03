@@ -163,7 +163,7 @@ Create lags on the regular hourly grid before removing incomplete examples. The 
 | Training pool | 2007–2008 | 17,341 usable examples |
 | Selected training sample | Within training pool | 500 fixed rows: 256 from 2007, 244 from 2008 |
 | Validation | 2009 | 8,602 usable examples |
-| Test | 2010 | Reserved; calculate four-input eligible count |
+| Test | Available 2010 observations through the dataset endpoint in November | Reserved; audit exact eligible endpoints, count, and monthly coverage |
 
 Earlier counts from the one-input experiment differ and must not be mixed with the four-input counts. Sampling uses a fixed selection; the five model seeds vary model randomness, not the sample.
 
@@ -437,9 +437,20 @@ These are target weeks, not guaranteed durations. If QAOA is too expensive, redu
 - [ ] No unsupported novelty, scalability, reliability, or quantum-advantage claims.
 - [ ] Paper, notebook, figures, and defense materials backed up.
 
-**Immediate next task:** build and verify the four-hour exact battery-scheduling example. Record the corrected seed-42 VQC result if available, but do not let further forecasting tuning delay the scheduling core.
+**Immediate next task:** build and verify the four-hour exact battery-scheduling example. The corrected seed-42 VQC result is recorded; do not let further forecasting tuning delay the scheduling core.
 
 
 ## Updated notebook evidence — 3 November 2026
 
 Original cell 84 stores the corrected two-block VQC seed-42 result: training MSE 0.4177 kW²; validation MAE 0.4149 kW; training time 478.4 seconds; 50 iterations; success=False because the iteration limit was reached. Other corrected VQC seeds remain pending. These values supersede the earlier pending status.
+
+
+### Test-period coverage and reporting
+
+The reserved test set is the **available portion of 2010**, not a full calendar year. UCI describes the dataset as ending in November 2010 (https://archive.ics.uci.edu/dataset/235/individual+household+electric+power+consumption). Before final evaluation, export the exact first/last eligible timestamps, four-input row count, and monthly coverage from the processed data. Those processed endpoints and counts have not yet been audited. Report cost and energy over the observed interval, with per-day or per-kWh normalizations where appropriate; do not label partial-period totals annual savings or extrapolate seasonal performance to a full year.
+
+### Evidence status
+
+No scheduler, battery-simulation implementation, QAOA implementation, or associated 12-test suite was located in this chat's accessible workspace during the 3 November audit. The claim of “12 passing tests” is unverified and must not be cited. This does not establish what exists in a separate inaccessible workspace. Scheduling remains planned until code and verifiable test output are committed.
+
+The rounded result CSVs are presentation transcriptions, not full-precision experimental artifacts. Export timestamp-aligned predictions, targets, model parameters, preprocessing state, and per-run diagnostics from the live experiment runtime; rerun only where those artifacts cannot be recovered. Recompute final statistics from these exports before final tables.
