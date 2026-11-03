@@ -1,0 +1,27 @@
+Battery scheduler verification
+Date (UTC): 2026-11-03T22:07:09.624855+00:00
+Python: 3.12.14
+Command: python3 -m unittest discover -s tests -v
+Exit code: 0
+
+test_cheap_then_expensive_shifts_energy (test_battery_scheduler.TestExactScheduler.test_cheap_then_expensive_shifts_energy) ... ok
+test_enumeration_count (test_battery_scheduler.TestExactScheduler.test_enumeration_count) ... ok
+test_flat_prices_optimum_is_do_nothing (test_battery_scheduler.TestExactScheduler.test_flat_prices_optimum_is_do_nothing)
+Round-trip losses mean cycling cannot help when prices are flat. ... ok
+test_infeasible_instance_returns_none (test_battery_scheduler.TestExactScheduler.test_infeasible_instance_returns_none) ... ok
+test_optimum_not_beaten_by_any_feasible_schedule (test_battery_scheduler.TestExactScheduler.test_optimum_not_beaten_by_any_feasible_schedule) ... ok
+test_returned_optimum_is_feasible_and_cost_consistent (test_battery_scheduler.TestExactScheduler.test_returned_optimum_is_feasible_and_cost_consistent) ... ok
+test_terminal_rule_prevents_emptying_battery (test_battery_scheduler.TestExactScheduler.test_terminal_rule_prevents_emptying_battery) ... ok
+test_battery_lower_bound (test_battery_scheduler.TestSimulator.test_battery_lower_bound) ... ok
+test_battery_upper_bound (test_battery_scheduler.TestSimulator.test_battery_upper_bound) ... ok
+test_execution_clips_discharge_under_forecast_error (test_battery_scheduler.TestSimulator.test_execution_clips_discharge_under_forecast_error) ... ok
+test_export_disabled_in_planning (test_battery_scheduler.TestSimulator.test_export_disabled_in_planning) ... ok
+test_manual_energy_balance (test_battery_scheduler.TestSimulator.test_manual_energy_balance)
+Hand calculation, eta = 0.9, E0 = 2.0 kWh, no terminal rule. ... ok
+test_zero_battery_activity (test_battery_scheduler.TestSimulator.test_zero_battery_activity) ... ok
+test_zero_solar_import_equals_net_load (test_battery_scheduler.TestSimulator.test_zero_solar_import_equals_net_load) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.017s
+
+OK
