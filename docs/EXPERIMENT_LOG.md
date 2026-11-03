@@ -1,6 +1,6 @@
 # Experiment record
 
-Status reconstructed from the uploaded notebook and its saved outputs on 3 November 2026. No experiment was rerun during repository preparation.
+Status reconstructed from the uploaded notebook and its saved outputs on 3 November 2026. Forecasting experiments were not rerun during initial repository preparation. Later scheduler checks and experiments are recorded below.
 
 | Experiment | Protocol | Reported outcome | Interpretation |
 |---|---|---|---|
@@ -36,3 +36,7 @@ Status reconstructed from the uploaded notebook and its saved outputs on 3 Novem
 - Supported interpretation:
 - Remaining limitation:
 - Next action:
+
+## S01 — synthetic exact scheduling example, 3 November 2026
+
+Purpose: establish a saved classical reference for QAOA. Reused the existing cost-consistency test fixture; no forecasting or test-period data used. Enumerated 625 schedules with 68 feasible. Selected actions: (0, +1, +1, −1) kW. Exact cost: 0.195 CU; idle-battery cost: 0.295 CU. Final energy: 3.347368421052632 kWh. Selected-trajectory energy balance, energy update, bounds, terminal energy, and import-cost assertions passed. Configuration, full trajectories, all candidate feasibility records, Table 4, and Figure 2 are saved. See [SCENARIO_01.md](SCENARIO_01.md). Next: verify QAOA encoding on the identical discrete problem.

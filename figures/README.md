@@ -35,3 +35,13 @@ Stored exploratory figure preserved without alteration. Provenance: original not
 **Caption.** Single-run validation MAE for the initial 500-example forecasting experiments. Neural-network and quantum inputs use the pilot scaler fitted on the full training pool. The dashed line represents persistence on the same validation rows. The two-block VQC and neural network reached their iteration limits without confirmed convergence. This pilot figure must not be presented as the corrected result in Figure 1.
 
 Stored exploratory figure preserved without alteration. Provenance: original notebook cell 72.
+
+## Figure 2. Four-hour exact battery schedule
+
+![Figure 2. Four-hour exact battery schedule](fig_02_four_hour_battery_schedule.png)
+
+**Caption.** Synthetic scenario S01: (a) assumed demand and available solar, (b) tariff in arbitrary currency units per kWh, (c) the exact discrete schedule, and (d) stored battery energy at interval boundaries. Positive power charges the battery; negative power discharges it. Enumeration evaluates 625 candidates, including 68 feasible schedules. The selected schedule costs 0.195 CU versus 0.295 CU with an idle battery under the same solar profile. This is an illustrative classical result, without forecasting or QAOA. The terminal minimum is 2.5 kWh; energy bounds are 0.5–5 kWh.
+
+[Vector PDF](fig_02_four_hour_battery_schedule.pdf) · [SVG](fig_02_four_hour_battery_schedule.svg) · [Scenario and interpretation](../docs/SCENARIO_01.md) · [Table 4](../results/table_04_four_hour_battery_schedule.csv)
+
+Reproduce with `python scripts/run_scheduling_scenario.py`.

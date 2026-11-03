@@ -1,0 +1,5 @@
+interval,demand_kw,solar_kw,tariff_cu_per_kwh,action_kw,energy_start_kwh,energy_end_kwh,grid_import_kw,curtailment_kw,interval_cost_cu,idle_grid_import_kw
+H1,1.0,0.0,0.12,0.0,2.5,2.5,1.0,0.0,0.12,1.0
+H2,1.0,1.5,0.15,1.0,2.5,3.45,0.5,0.0,0.075,0.0
+H3,1.0,2.5,0.3,1.0,3.45,4.4,0.0,0.5,0.0,0.0
+H4,1.0,0.5,0.35,-1.0,4.4,3.347368421052632,0.0,0.5,0.0,0.5

@@ -340,7 +340,9 @@ Warnings are recorded as observed. Absence of a warning is not evidence of globa
 
 The two-block seed-42 pilot improved MAE by approximately 6.1% relative to the first VQC pilot. Additional training showed no validation improvement in that run. These observations motivated a fixed protocol; they are not final evidence of quantum advantage.
 
-## 6.3 Scheduling results — to fill
+## 6.3 Scheduling results — classical illustrative reference available
+
+Synthetic scenario S01 evaluates 625 schedules, 68 feasible, with exact cost 0.195 CU versus idle-battery cost 0.295 CU. The selected actions are (0, +1, +1, −1) kW, with final energy 3.3474 kWh. See [the scenario report](SCENARIO_01.md), Table 4, and Figure 2 in the repository registers. These results use no forecasts or QAOA; the comparison below remains pending.
 
 | Scenario/window | Exact feasible cost | QAOA feasible cost | Absolute gap | Feasible-sample rate | Runtime |
 |---|---|---|---|---|---|
@@ -439,7 +441,7 @@ These are target weeks, not guaranteed durations. If QAOA is too expensive, redu
 - [ ] No unsupported novelty, scalability, reliability, or quantum-advantage claims.
 - [ ] Paper, notebook, figures, and defense materials backed up.
 
-**Immediate next task:** document a reproducible four-hour scheduling scenario, review its assumptions, and specify QAOA encoding for comparison with the implemented exact reference. The corrected seed-42 VQC result is recorded; do not let further forecasting tuning delay the scheduling core.
+**Immediate next task:** specify and verify QAOA encoding against the exact reference. Synthetic scenario S01, Table 4, and Figure 2 are documented in `docs/SCENARIO_01.md` (repository-root path). The corrected seed-42 VQC result is recorded; do not let further forecasting tuning delay the scheduling core.
 
 
 ## Updated notebook evidence — 3 November 2026

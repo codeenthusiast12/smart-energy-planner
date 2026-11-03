@@ -8,7 +8,7 @@ This capstone investigates whether differences in demand forecasts translate int
 
 ## Current status
 
-Forecasting, a classical battery simulator, and an exact discrete scheduler are implemented. The scheduler's 14 supplied tests pass. QAOA and integrated operational evaluation are **not yet implemented**. No quantum advantage, operational savings, or final test performance is claimed.
+Forecasting, a classical battery simulator, and an exact discrete scheduler are implemented. The scheduler's 14 supplied tests pass. QAOA and integrated operational evaluation are **not yet implemented**. A documented synthetic classical example is available; no quantum advantage, measured household savings, or final test performance is claimed.
 
 The notebook includes the exploration history and a corrected limited-data experiment. The corrected protocol uses 500 fixed training examples from 2007–2008, 8,602 validation examples from 2009, and preprocessing fitted exclusively on those 500 training examples. The 2010 test period remains reserved.
 
@@ -87,9 +87,17 @@ Demand comes from UCI's Individual Household Electric Power Consumption dataset 
 
 Original pilot preprocessing used the full training pool. Only the corrected section fits scaling on the selected 500 examples. Do not combine these protocols in a final-results table. Saved notebook outputs are evidence from the uploaded file; they were not regenerated while packaging this repository. Per-run CSV values are rounded and cannot replace full-precision exports from a live runtime.
 
+## Four-hour scheduling example
+
+[Scenario S01](docs/SCENARIO_01.md) includes assumptions, Table 4, Figure 2, and full-precision exports. Exact enumeration evaluates 625 schedules (68 feasible), obtaining a cost of 0.195 CU versus 0.295 CU for an idle battery. These are synthetic illustrative results, without forecasting or QAOA.
+
+```bash
+python scripts/run_scheduling_scenario.py
+```
+
 ## Next milestone
 
-Document a reproducible four-hour scheduling scenario and review its parameter assumptions, then implement and verify QAOA encoding against the exact discrete scheduler. Forecasting improvements alone do not demonstrate energy-cost savings.
+Implement and verify QAOA encoding against the documented exact discrete scheduler, preserving identical inputs and constraints. Forecasting improvements alone do not demonstrate energy-cost savings.
 
 ## Publication and licensing
 

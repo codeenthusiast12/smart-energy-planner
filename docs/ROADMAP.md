@@ -4,13 +4,13 @@ Target: remaining four weeks, with paper writing alongside implementation.
 
 ## Week 1 — exact scheduling reference
 
-Update, 3 November 2026: supplied simulator and exact scheduler are implemented; all 14 supplied tests pass. See `SCHEDULER_REVIEW.md` and `../results/battery_scheduler_test_log.txt`. Test fixtures define small scenarios; a saved paper experiment and final assumptions are still pending.
+Update, 3 November 2026: supplied simulator and exact scheduler are implemented; all 14 supplied tests pass. See `SCHEDULER_REVIEW.md` and `../results/battery_scheduler_test_log.txt`. Synthetic scenario S01 is now documented with assumptions, full-precision outputs, Table 4, and Figure 2 in `SCENARIO_01.md`. The broader operational evaluation protocol remains pending.
 
-- [ ] Define a four-hour scenario: demand, solar, tariff, battery capacity, initial state, efficiencies, and action levels.
+- [x] Define a four-hour scenario: demand, solar, tariff, battery capacity, initial state, efficiencies, and action levels.
 - [x] Define no-export/import policy and terminal battery-energy rule.
 - [x] Enumerate schedules and reject physically infeasible trajectories.
 - [x] Check simple cases by hand and verify energy balance.
-- [ ] Write the system-model section and record assumptions.
+- [x] Document the S01 system model and assumptions; adapt the report into the final methods section.
 
 Done when the optimum of the chosen discrete problem is verifiable, not merely when a cost prints.
 

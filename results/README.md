@@ -1,6 +1,6 @@
-# Recorded forecasting results
+# Recorded research results
 
-Recorded validation results from the uploaded notebook, rounded to four decimals. No model was retrained to prepare this report. Final held-out test results and operational/QAOA results are not yet available.
+Recorded validation results from the uploaded notebook, rounded to four decimals. No model was retrained to prepare this report. Final held-out test results and integrated forecasting/QAOA results are not yet available. A synthetic classical scheduling example is recorded separately below.
 
 ## Table 1. Forecasting performance under corrected preprocessing
 
@@ -46,3 +46,7 @@ Recorded validation results from the uploaded notebook, rounded to four decimals
 ## Supporting record
 
 [Experiment execution log](experiment_execution_log.txt) preserves printed outputs. Historical pilots remain in the notebook and [experiment diary](../docs/EXPERIMENT_LOG.md), separate from the corrected tables. Notebook cell identifiers are retained only for provenance, not as manuscript titles.
+
+## Table 4. Four-hour exact battery schedule
+
+[Table 4 CSV](table_04_four_hour_battery_schedule.csv) records the interval inputs, selected actions, battery energy, imports, curtailment, and costs for synthetic scenario S01. [Configuration and full trajectories](scenario_01_exact_scheduling.json) and [all enumerated candidates](scenario_01_enumerated_schedules.csv) preserve unrounded numerical outputs. See [the scenario report](../docs/SCENARIO_01.md) for the formatted table and limitations. All 625 candidates were evaluated, 68 were feasible, and cost was 0.195 CU versus 0.295 CU with an idle battery. These values are illustrative, not quantum or held-out-data results.
