@@ -29,7 +29,7 @@ The quantum forecasting circuit and QAOA are different algorithms serving differ
 | Five-seed corrected MLP and Random Forest | Completed | Save per-run metrics, predictions, settings, and warnings |
 | Corrected two-block VQC seed 42 | Completed in uploaded notebook | MAE 0.4149 kW; iteration limit reached |
 | Remaining corrected VQC runs | Pending | Complete fixed protocol without open-ended tuning |
-| Solar–battery simulator and exact scheduler | Planned | Implement and verify before QAOA |
+| Solar–battery simulator and exact scheduler | Implemented; 14 tests pass | Supplied source and test suite committed; operational experiment results pending |
 | QAOA scheduling | Planned | Compare against identical discrete classical problem |
 | Forecast-to-operation experiments | Planned | Run matched scenarios and realized-demand evaluation |
 | Final test evaluation | Reserved | Run only after methodological choices are fixed |
@@ -203,7 +203,9 @@ The one-block circuit contains adjacent same-axis input and weight rotations, wh
 
 # 4. Microgrid and Battery-Scheduling Methodology
 
-**Status: Planned. No operational or QAOA results are available yet.**
+**Status: Classical simulator and exact enumeration implemented; 14 supplied tests pass. QAOA and integrated operational results remain pending.**
+
+Implementation: `src/battery_scheduler.py`; verification: `tests/test_battery_scheduler.py`; test record: `results/battery_scheduler_test_log.txt`. See `docs/SCHEDULER_REVIEW.md` for defaults and limitations. The parameter table below is a study-design checklist; the experiment configuration must be explicitly fixed and saved.
 
 ## 4.1 Scenario specification
 
@@ -236,7 +238,7 @@ Proposed continuous description, to be discretized consistently:
 
 These equations assume no export and grid import sufficient to meet demand. If import limits or unserved demand are introduced, add the corresponding variables and penalties explicitly. Do not report reliability improvements when unlimited grid supply makes unserved energy identically zero.
 
-## 4.3 Exact classical reference — implement first
+## 4.3 Exact classical reference — implemented
 
 Define a small discrete battery action set. Enumerate all candidate schedules, reject infeasible trajectories, calculate the objective for each feasible schedule, and retain the minimum-cost one. This establishes the optimum for that exact discrete problem, not for a different continuous problem.
 
@@ -381,7 +383,7 @@ The list below is a proposed final-manuscript arrangement, not the current repos
 | Figure 2 | Demand profile, missing hours, chronological splits | Data available; prepare final version |
 | Figure 3 | VQC architecture with readout | Circuit diagram available; label for paper |
 | Figure 4 | Corrected forecasting means and across-seed variation | Await corrected VQC runs |
-| Figure 5 | Demand, solar, tariff, battery state, and actions for one scenario | Pending simulator |
+| Figure 5 | Demand, solar, tariff, battery state, and actions for one scenario | Simulator available; scenario figure pending |
 | Figure 6 | QAOA feasible-solution gap and feasibility | Pending QAOA |
 | Figure 7 | Realized operating costs for matched pipelines | Pending integration |
 | Table 1 | Related-work comparison | Pending verification |
@@ -419,7 +421,7 @@ These are target weeks, not guaranteed durations. If QAOA is too expensive, redu
 
 ## D. Supervisor progress summary
 
-> I have implemented the demand-data pipeline, classical forecasting baselines, and one-block and two-block variational quantum regressors. I have also corrected the limited-data preprocessing protocol and completed five-seed comparisons for the neural network and Random Forest. The quantum forecasting results are still partly exploratory. My next priority is a verified small battery-scheduling simulator and exact reference, followed by QAOA on the identical discrete problem. The remaining evaluation will investigate whether differences in forecast accuracy translate into differences in realized operating cost. The scope is now fixed solar and battery capacities in a small simulated grid-connected system.
+> I have implemented the demand-data pipeline, classical forecasting baselines, and one-block and two-block variational quantum regressors. I have also corrected the limited-data preprocessing protocol and completed five-seed comparisons for the neural network and Random Forest. The quantum forecasting results are still partly exploratory. I have also implemented a battery simulator and exact discrete scheduler, with 14 supplied tests passing. My next priority is to document the scheduling scenario and verify QAOA encoding against that exact reference. The remaining evaluation will investigate whether differences in forecast accuracy translate into differences in realized operating cost. The scope is now fixed solar and battery capacities in a small simulated grid-connected system.
 
 ## E. Submission readiness checklist
 
@@ -428,7 +430,7 @@ These are target weeks, not guaranteed durations. If QAOA is too expensive, redu
 - [ ] Dataset provenance, feature timing, and missing-data policy verified.
 - [ ] Pilot and corrected experiments clearly separated.
 - [ ] Fixed seeds, budgets, and all retained results documented.
-- [ ] Operational constraints and terminal battery rule implemented.
+- [x] Prototype operational constraints and terminal battery rule implemented (14 supplied tests pass; see scheduler review for validation gaps).
 - [ ] QAOA encoding checked against the identical exact problem.
 - [ ] Future actual demand excluded from forecast inputs.
 - [ ] Final test evaluation performed only after choices are fixed.
@@ -437,7 +439,7 @@ These are target weeks, not guaranteed durations. If QAOA is too expensive, redu
 - [ ] No unsupported novelty, scalability, reliability, or quantum-advantage claims.
 - [ ] Paper, notebook, figures, and defense materials backed up.
 
-**Immediate next task:** build and verify the four-hour exact battery-scheduling example. The corrected seed-42 VQC result is recorded; do not let further forecasting tuning delay the scheduling core.
+**Immediate next task:** document a reproducible four-hour scheduling scenario, review its assumptions, and specify QAOA encoding for comparison with the implemented exact reference. The corrected seed-42 VQC result is recorded; do not let further forecasting tuning delay the scheduling core.
 
 
 ## Updated notebook evidence — 3 November 2026
@@ -451,6 +453,6 @@ The reserved test set is the **available portion of 2010**, not a full calendar 
 
 ### Evidence status
 
-No scheduler, battery-simulation implementation, QAOA implementation, or associated 12-test suite was located in this chat's accessible workspace during the 3 November audit. The claim of “12 passing tests” is unverified and must not be cited. This does not establish what exists in a separate inaccessible workspace. Scheduling remains planned until code and verifiable test output are committed.
+The initial 3 November audit did not have access to the separate scheduler files. Later that day, the author supplied `battery_scheduler.py` and `test_battery_scheduler.py`. They are now included under `src/` and `tests/`, unchanged from those uploads. All **14 tests passed** using `python3 -m unittest discover -s tests -v`; the dated output is saved in `results/battery_scheduler_test_log.txt`. This supersedes the earlier missing-code status. QAOA and integrated operational evaluation remain pending; the earlier claim of 12 tests is not used as evidence.
 
 The rounded result CSVs are presentation transcriptions, not full-precision experimental artifacts. Export timestamp-aligned predictions, targets, model parameters, preprocessing state, and per-run diagnostics from the live experiment runtime; rerun only where those artifacts cannot be recovered. Recompute final statistics from these exports before final tables.
