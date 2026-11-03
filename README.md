@@ -8,7 +8,7 @@ This capstone investigates whether differences in demand forecasts translate int
 
 ## Current status
 
-Forecasting is implemented. Battery scheduling, QAOA, and integrated operational evaluation are **not yet implemented**. No quantum advantage, operational savings, or final test performance is claimed.
+Forecasting, a classical battery simulator, and an exact discrete scheduler are implemented. The scheduler's 14 supplied tests pass. QAOA and integrated operational evaluation are **not yet implemented**. No quantum advantage, operational savings, or final test performance is claimed.
 
 The notebook includes the exploration history and a corrected limited-data experiment. The corrected protocol uses 500 fixed training examples from 2007–2008, 8,602 validation examples from 2009, and preprocessing fitted exclusively on those 500 training examples. The 2010 test period remains reserved.
 
@@ -33,6 +33,10 @@ Intervals show across-seed sample SD where five runs are available. VQC has one 
 
 ## Repository contents
 
+- `src/battery_scheduler.py`: supplied battery simulator, no-battery baseline, and exact enumeration.
+- `tests/test_battery_scheduler.py`: 14 supplied verification cases.
+- `results/battery_scheduler_test_log.txt`: dated test output and runtime version.
+
 - `notebooks/Smart_Energy_Planner.ipynb`: original code and stored outputs, with added section headings.
 - `docs/PAPER_BLUEPRINT.md`: full paper outline, completed work, remaining methods, results placeholders, and diary template.
 - `docs/ROADMAP.md`: four-week priorities and completion criteria.
@@ -44,6 +48,16 @@ Intervals show across-seed sample SD where five runs are available. VQC has one 
 - `figures/`: existing notebook figures; see their README for pilot labeling.
 - `scripts/validate_notebook.py`: structural and Python syntax checks, without running training.
 - `scripts/capture_environment.py`: record actual package versions in the runtime executing it.
+
+## Verify the battery scheduler
+
+From the repository root, run:
+
+```bash
+python3 -m unittest discover -s tests -v
+```
+
+The scheduler and tests use only the Python standard library. See [the scheduler review](docs/SCHEDULER_REVIEW.md) for supported behavior, defaults, and remaining validation gaps. These tests are implementation checks, not evidence of operational savings.
 
 ## Run in Google Colab
 
@@ -75,7 +89,7 @@ Original pilot preprocessing used the full training pool. Only the corrected sec
 
 ## Next milestone
 
-Implement a four-hour battery simulator and exact discrete scheduler. Verify energy balance, battery bounds, efficiency, and terminal energy before implementing QAOA on the identical problem. Forecasting improvements alone do not demonstrate energy-cost savings.
+Document a reproducible four-hour scheduling scenario and review its parameter assumptions, then implement and verify QAOA encoding against the exact discrete scheduler. Forecasting improvements alone do not demonstrate energy-cost savings.
 
 ## Publication and licensing
 
@@ -88,7 +102,7 @@ The reserved test set is the **available portion of 2010**, not a full calendar 
 
 ### Evidence status
 
-No scheduler, battery-simulation implementation, QAOA implementation, or associated 12-test suite was located in this chat's accessible workspace during the 3 November audit. The claim of “12 passing tests” is unverified and must not be cited. This does not establish what exists in a separate inaccessible workspace. Scheduling remains planned until code and verifiable test output are committed.
+The initial 3 November audit did not have access to the separate scheduler files. Later that day, the author supplied `battery_scheduler.py` and `test_battery_scheduler.py`. They are now included under `src/` and `tests/`, unchanged from those uploads. All **14 tests passed** using `python3 -m unittest discover -s tests -v`; the dated output is saved in `results/battery_scheduler_test_log.txt`. This supersedes the earlier missing-code status. QAOA and integrated operational evaluation remain pending; the earlier claim of 12 tests is not used as evidence.
 
 The rounded result CSVs are presentation transcriptions, not full-precision experimental artifacts. Export timestamp-aligned predictions, targets, model parameters, preprocessing state, and per-run diagnostics from the live experiment runtime; rerun only where those artifacts cannot be recovered. Recompute final statistics from these exports before final tables.
 
