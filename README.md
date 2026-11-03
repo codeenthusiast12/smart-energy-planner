@@ -22,6 +22,15 @@ The notebook includes the exploration history and a corrected limited-data exper
 
 VQC seed 42 reached the 50-iteration limit: training MSE 0.4177 kW², runtime 478.4 seconds, no confirmed convergence. Two neural-network runs raised convergence warnings. Do not compare one VQC run with the classical averages as evidence of statistical superiority. The notebook uses statevector simulation, not quantum hardware.
 
+## Research figures and tables
+
+- [Figure 1 and supplementary figures](figures/README.md): descriptive filenames, numbered captions, and a vector PDF for the corrected comparison.
+- [Tables 1–3: recorded forecasting results](results/README.md): summary, individual seeds, and training diagnostics.
+
+![Figure 1. Validation forecasting performance](figures/fig_01_validation_forecasting_performance.png)
+
+Intervals show across-seed sample SD where five runs are available. VQC has one corrected run.
+
 ## Repository contents
 
 - `notebooks/Smart_Energy_Planner.ipynb`: original code and stored outputs, with added section headings.
@@ -30,8 +39,8 @@ VQC seed 42 reached the 50-iteration limit: training MSE 0.4177 kW², runtime 47
 - `docs/EXPERIMENT_LOG.md`: experiment summaries and limitations.
 - `docs/NOTEBOOK_REVIEW.md`: review findings and reproducibility gaps.
 - `docs/NOTEBOOK_PROVENANCE.json`: original upload fingerprint and cell mapping.
-- `results/corrected_validation_runs.csv`: per-seed values transcribed from rounded printed outputs.
-- `results/notebook_output_log.txt`: stored stream outputs exported from the notebook.
+- `results/table_02_forecasting_results_by_seed.csv`: per-seed values transcribed from rounded printed outputs.
+- `results/experiment_execution_log.txt`: stored stream outputs exported from the notebook.
 - `figures/`: existing notebook figures; see their README for pilot labeling.
 - `scripts/validate_notebook.py`: structural and Python syntax checks, without running training.
 - `scripts/capture_environment.py`: record actual package versions in the runtime executing it.

@@ -1,0 +1,6 @@
+model,validation_mae_kw,sample_sd_kw,training_runs,status
+Neural network,0.3960,0.0049,5,Two runs raised convergence warnings
+Linear regression,0.4147,,1,Deterministic fitted reference
+Two-block VQC,0.4149,,1,Seed 42 only; iteration limit reached
+Random Forest,0.4234,0.0023,5,Five predefined seeds
+Persistence,0.4291,,0,Untrained reference

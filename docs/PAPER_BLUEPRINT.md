@@ -373,6 +373,8 @@ Write after final evaluation. State the task, principal quantified findings, pra
 
 ## A. Figure and table plan
 
+The list below is a proposed final-manuscript arrangement, not the current repository numbering. For current numbered outputs and captions use [the figure register](../figures/README.md) and [the results tables](../results/README.md). Renumber consistently when assembling the final paper.
+
 | Item | Intended content | Status |
 |---|---|---|
 | Figure 1 | Full forecasting-to-operation workflow | Planned |
