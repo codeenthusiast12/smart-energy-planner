@@ -1,6 +1,6 @@
 # Recorded research results
 
-Recorded validation results from the uploaded notebook, rounded to four decimals. No model was retrained to prepare this report. Final held-out test results and integrated forecasting/QAOA results are not yet available. A synthetic classical scheduling example is recorded separately below.
+Recorded validation results from the uploaded notebook, rounded to four decimals. No model was retrained to prepare this report. Final held-out test results and integrated forecasting-to-operation results are not yet available. A separate synthetic QAOA pilot is available below. A synthetic classical scheduling example is recorded separately below.
 
 ## Table 1. Forecasting performance under corrected preprocessing
 
@@ -50,3 +50,9 @@ Recorded validation results from the uploaded notebook, rounded to four decimals
 ## Table 4. Four-hour exact battery schedule
 
 [Table 4 CSV](table_04_four_hour_battery_schedule.csv) records the interval inputs, selected actions, battery energy, imports, curtailment, and costs for synthetic scenario S01. [Configuration and full trajectories](scenario_01_exact_scheduling.json) and [all enumerated candidates](scenario_01_enumerated_schedules.csv) preserve unrounded numerical outputs. See [the scenario report](../docs/SCENARIO_01.md) for the formatted table and limitations. All 625 candidates were evaluated, 68 were feasible, and cost was 0.195 CU versus 0.295 CU with an idle battery. These values are illustrative, not quantum or held-out-data results.
+
+## Table 6. S01 QAOA pilot by seed and sampling method
+
+[Per-run CSV](table_06_qaoa_pilot_by_seed.csv) records exact statevector probabilities, sampled feasible counts and best costs, evaluation counts, and termination flags. [Protocol](qaoa_pilot_protocol.json), [full runs and counts](qaoa_pilot_runs.json), and [probability archive](qaoa_pilot_probabilities.npz) preserve the experiment. See [QAOA_PILOT.md](../docs/QAOA_PILOT.md) for the formatted summary and [Figure 3](../figures/fig_03_qaoa_pilot_probabilities.png).
+
+QAOA mean feasible probability was 7.0023%, versus 1.6602% for uniform bitstrings and 10.88% for uniform valid-action schedules. Four of five QAOA runs hit the evaluation limit. QAOA found the optimum in four sampled batches; the stronger random baseline did so in five. This is an exploratory synthetic one-scenario result, not integrated forecasting performance or quantum advantage.

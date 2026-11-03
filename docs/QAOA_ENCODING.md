@@ -2,7 +2,7 @@
 
 ## Status
 
-Implemented and exhaustively verified on 3 November 2026. This is the encoding stage of a small QAOA prototype; no QAOA circuit training or quantum-performance result is reported here.
+Implemented and exhaustively verified on 3 November 2026. This document records the encoding stage. A subsequent five-seed ideal statevector experiment is now documented in [QAOA_PILOT.md](QAOA_PILOT.md); no hardware execution is claimed.
 
 ## Table 5. Binary battery-action encoding
 
@@ -66,7 +66,7 @@ Only Python's standard library is needed for this step.
 - Summary and source hashes: [verification JSON](../results/scenario_01_encoding_verification.json)
 - All energies and masks in basis-index order: [cost diagonal JSON](../results/scenario_01_cost_diagonal.json)
 
-## Planned QAOA experiment
+## QAOA protocol and subsequent pilot
 
 Use the uniform superposition as the initial state, alternate a cost phase exp(−i gamma H_C) with an X mixer exp(−i beta sum_j X_j), and optimize the expected encoded cost. IBM's generalized QAOA documentation describes cost operators and the default uniform initialization and X mixer [2]. In a simulator, the diagonal phase can be applied directly to amplitudes; this must not be reported as efficient compiled hardware execution.
 

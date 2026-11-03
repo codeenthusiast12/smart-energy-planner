@@ -30,7 +30,7 @@ The quantum forecasting circuit and QAOA are different algorithms serving differ
 | Corrected two-block VQC seed 42 | Completed in uploaded notebook | MAE 0.4149 kW; iteration limit reached |
 | Remaining corrected VQC runs | Pending | Complete fixed protocol without open-ended tuning |
 | Solar–battery simulator and exact scheduler | Implemented; 14 tests pass | Supplied source and test suite committed; operational experiment results pending |
-| QAOA scheduling | Planned | Compare against identical discrete classical problem |
+| QAOA scheduling | Pilot complete | Five p=1 ideal NumPy statevector runs on S01; stronger random baseline outperformed QAOA; see QAOA_PILOT.md |
 | Forecast-to-operation experiments | Planned | Run matched scenarios and realized-demand evaluation |
 | Final test evaluation | Reserved | Run only after methodological choices are fixed |
 | Manuscript and defense | In progress | Use this structure to write alongside experiments |
@@ -203,7 +203,7 @@ The one-block circuit contains adjacent same-axis input and weight rotations, wh
 
 # 4. Microgrid and Battery-Scheduling Methodology
 
-**Status: Classical simulator and exact enumeration implemented; 14 supplied tests pass. QAOA and integrated operational results remain pending.**
+**Status: Classical simulator and exact enumeration implemented; 14 supplied tests pass. A one-layer ideal QAOA pilot is available in QAOA_PILOT.md; integrated operational results remain pending.**
 
 Implementation: `src/battery_scheduler.py`; verification: `tests/test_battery_scheduler.py`; test record: `results/battery_scheduler_test_log.txt`. See `docs/SCHEDULER_REVIEW.md` for defaults and limitations. The parameter table below is a study-design checklist; the experiment configuration must be explicitly fixed and saved.
 
@@ -342,7 +342,7 @@ The two-block seed-42 pilot improved MAE by approximately 6.1% relative to the f
 
 ## 6.3 Scheduling results — classical illustrative reference available
 
-Synthetic scenario S01 evaluates 625 schedules, 68 feasible, with exact cost 0.195 CU versus idle-battery cost 0.295 CU. The selected actions are (0, +1, +1, −1) kW, with final energy 3.3474 kWh. See [the scenario report](SCENARIO_01.md), Table 4, and Figure 2 in the repository registers. These results use no forecasts or QAOA; the comparison below remains pending.
+Synthetic scenario S01 evaluates 625 schedules, 68 feasible, with exact cost 0.195 CU versus idle-battery cost 0.295 CU. The selected actions are (0, +1, +1, −1) kW, with final energy 3.3474 kWh. See [the scenario report](SCENARIO_01.md), Table 4, and Figure 2 in the repository registers. The exact reference uses no forecasts or QAOA. A subsequent p=1 QAOA pilot sampled the 0.195 CU optimum in four of five 1,024-draw batches; the remaining best cost was 0.225 CU. Uniform valid-action sampling outperformed QAOA on exact feasibility and optimum probabilities. See [QAOA_PILOT.md](QAOA_PILOT.md) for Table 6 and Figure 3. Broader scenario comparisons remain pending.
 
 | Scenario/window | Exact feasible cost | QAOA feasible cost | Absolute gap | Feasible-sample rate | Runtime |
 |---|---|---|---|---|---|
@@ -441,7 +441,7 @@ These are target weeks, not guaranteed durations. If QAOA is too expensive, redu
 - [ ] No unsupported novelty, scalability, reliability, or quantum-advantage claims.
 - [ ] Paper, notebook, figures, and defense materials backed up.
 
-**Immediate next task:** specify and verify QAOA encoding against the exact reference. Synthetic scenario S01, Table 4, and Figure 2 are documented in `docs/SCENARIO_01.md` (repository-root path). The corrected seed-42 VQC result is recorded; do not let further forecasting tuning delay the scheduling core.
+**Immediate next task:** cross-check the ideal NumPy QAOA evolution in Colab/Qiskit, then define a fixed multi-scenario evaluation. Synthetic scenario S01, Table 4, and Figure 2 are documented in `docs/SCENARIO_01.md` (repository-root path). The corrected seed-42 VQC result is recorded; do not let further forecasting tuning delay the scheduling core.
 
 
 ## Updated notebook evidence — 3 November 2026
@@ -455,6 +455,6 @@ The reserved test set is the **available portion of 2010**, not a full calendar 
 
 ### Evidence status
 
-The initial 3 November audit did not have access to the separate scheduler files. Later that day, the author supplied `battery_scheduler.py` and `test_battery_scheduler.py`. They are now included under `src/` and `tests/`, unchanged from those uploads. All **14 tests passed** using `python3 -m unittest discover -s tests -v`; the dated output is saved in `results/battery_scheduler_test_log.txt`. This supersedes the earlier missing-code status. QAOA and integrated operational evaluation remain pending; the earlier claim of 12 tests is not used as evidence.
+The initial 3 November audit did not have access to the separate scheduler files. Later that day, the author supplied `battery_scheduler.py` and `test_battery_scheduler.py`. They are now included under `src/` and `tests/`, unchanged from those uploads. All **14 tests passed** using `python3 -m unittest discover -s tests -v`; the dated output is saved in `results/battery_scheduler_test_log.txt`. This supersedes the earlier missing-code status. This historical scheduler-upload milestone has since been followed by the S01 ideal QAOA pilot. Integrated operational evaluation remains pending; the earlier claim of 12 tests is not used as evidence.
 
 The rounded result CSVs are presentation transcriptions, not full-precision experimental artifacts. Export timestamp-aligned predictions, targets, model parameters, preprocessing state, and per-run diagnostics from the live experiment runtime; rerun only where those artifacts cannot be recovered. Recompute final statistics from these exports before final tables.

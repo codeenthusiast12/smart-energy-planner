@@ -8,7 +8,7 @@ This capstone investigates whether differences in demand forecasts translate int
 
 ## Current status
 
-Forecasting, a classical battery simulator, and an exact discrete scheduler are implemented. The scheduler's 14 supplied tests pass. The binary encoding and diagonal cost model for QAOA are exhaustively verified; QAOA circuit training and integrated operational evaluation are **not yet implemented**. A documented synthetic classical example is available; no quantum advantage, measured household savings, or final test performance is claimed.
+Forecasting, a classical battery simulator, and an exact discrete scheduler are implemented. The 14 supplied scheduler tests and seven new QAOA simulation tests pass (21 total). The binary encoding is exhaustively verified, and a five-seed, one-layer ideal QAOA statevector pilot is complete. Integrated forecast-to-operation evaluation remains pending. The scheduling prototype runs in NumPy; Qiskit cross-verification and hardware execution have not been performed. A documented synthetic classical example is available; no quantum advantage, measured household savings, or final test performance is claimed.
 
 The notebook includes the exploration history and a corrected limited-data experiment. The corrected protocol uses 500 fixed training examples from 2007–2008, 8,602 validation examples from 2009, and preprocessing fitted exclusively on those 500 training examples. The 2010 test period remains reserved.
 
@@ -57,7 +57,7 @@ From the repository root, run:
 python3 -m unittest discover -s tests -v
 ```
 
-The scheduler and tests use only the Python standard library. See [the scheduler review](docs/SCHEDULER_REVIEW.md) for supported behavior, defaults, and remaining validation gaps. These tests are implementation checks, not evidence of operational savings.
+The scheduler's original tests use only the Python standard library; the new QAOA tests also require NumPy and SciPy. See [the scheduler review](docs/SCHEDULER_REVIEW.md) for supported behavior, defaults, and remaining validation gaps. These tests are implementation checks, not evidence of operational savings.
 
 ## Run in Google Colab
 
@@ -95,9 +95,13 @@ Original pilot preprocessing used the full training pool. Only the corrected sec
 python scripts/run_scheduling_scenario.py
 ```
 
+## First QAOA pilot
+
+[Protocol, results, and limitations](docs/QAOA_PILOT.md): five p=1 runs, with 1,024 final samples per method per seed. QAOA's mean feasible probability was 7.00%, compared with 1.66% for uniform bitstrings and 10.88% for uniform valid-action schedules. The stronger classical baseline outperformed this QAOA pilot. See Figure 3 and Table 6; no quantum advantage is established.
+
 ## Next milestone
 
-Implement and independently check the QAOA cost-phase and mixer circuit, then run a small fixed-budget experiment. The [12-qubit binary encoding](docs/QAOA_ENCODING.md) now reproduces the S01 optimum across all 4,096 states. This is a dense diagonal simulator prototype, not an efficient QUBO construction. Forecasting improvements alone do not demonstrate energy-cost savings.
+Cross-check the NumPy QAOA evolution in Colab/Qiskit, then define a fixed multi-scenario evaluation. The [12-qubit binary encoding](docs/QAOA_ENCODING.md) now reproduces the S01 optimum across all 4,096 states. This is a dense diagonal simulator prototype, not an efficient QUBO construction. Forecasting improvements alone do not demonstrate energy-cost savings.
 
 ## Publication and licensing
 
@@ -110,7 +114,7 @@ The reserved test set is the **available portion of 2010**, not a full calendar 
 
 ### Evidence status
 
-The initial 3 November audit did not have access to the separate scheduler files. Later that day, the author supplied `battery_scheduler.py` and `test_battery_scheduler.py`. They are now included under `src/` and `tests/`, unchanged from those uploads. All **14 tests passed** using `python3 -m unittest discover -s tests -v`; the dated output is saved in `results/battery_scheduler_test_log.txt`. This supersedes the earlier missing-code status. QAOA and integrated operational evaluation remain pending; the earlier claim of 12 tests is not used as evidence.
+The initial 3 November audit did not have access to the separate scheduler files. Later that day, the author supplied `battery_scheduler.py` and `test_battery_scheduler.py`. They are now included under `src/` and `tests/`, unchanged from those uploads. All **14 tests passed** using `python3 -m unittest discover -s tests -v`; the dated output is saved in `results/battery_scheduler_test_log.txt`. This supersedes the earlier missing-code status. That was the scheduler-upload milestone. A subsequent ideal QAOA pilot is now recorded; integrated operational evaluation remains pending. The earlier claim of 12 tests is not used as evidence.
 
 The rounded result CSVs are presentation transcriptions, not full-precision experimental artifacts. Export timestamp-aligned predictions, targets, model parameters, preprocessing state, and per-run diagnostics from the live experiment runtime; rerun only where those artifacts cannot be recovered. Recompute final statistics from these exports before final tables.
 

@@ -17,9 +17,11 @@ Done when the optimum of the chosen discrete problem is verifiable, not merely w
 ## Week 2 — QAOA and remaining forecasting protocol
 
 - [x] Specify a 12-qubit direct action encoding, diagonal penalty Hamiltonian, uniform initialization, and planned X mixer (see `QAOA_ENCODING.md`; no auxiliary qubits in the abstract oracle).
-- [ ] Implement and independently verify the QAOA circuit. The dense cost table is a simulator prototype, not an efficient QUBO or hardware synthesis.
+- [x] Implement ideal QAOA statevector evolution and independently verify against dense matrix exponentials (seven new tests).
+- [ ] Cross-check the equivalent circuit in Colab/Qiskit. The dense cost table is a simulator prototype, not an efficient QUBO or hardware synthesis.
 - [x] Verify S01 encoding against exact enumeration over all 4,096 basis states; repeat for any changed scenario.
-- [ ] Record sampled feasibility and feasible solution quality.
+- [x] Record S01 pilot feasibility, solution quality, five seeds, optimizer termination, and two random baselines (see `QAOA_PILOT.md`).
+- [ ] Extend to a fixed set of scenarios and budgets before making broader comparisons.
 - [ ] Complete predefined corrected forecasting runs without adding new architectures.
 - [ ] Finalize methods and a focused verified related-work matrix.
 
