@@ -1,0 +1,320 @@
+ORIGINAL CELL 0
+Smart Energy Planner
+
+
+ORIGINAL CELL 1
+Collecting ucimlrepo
+  Downloading ucimlrepo-0.0.7-py3-none-any.whl.metadata (5.5 kB)
+Requirement already satisfied: pandas>=1.0.0 in /usr/local/lib/python3.13/dist-packages (from ucimlrepo) (2.2.3)
+Requirement already satisfied: certifi>=2020.12.5 in /usr/local/lib/python3.13/dist-packages (from ucimlrepo) (2026.10.23)
+Requirement already satisfied: numpy>=1.26.0 in /usr/local/lib/python3.13/dist-packages (from pandas>=1.0.0->ucimlrepo) (2.4.6)
+Requirement already satisfied: python-dateutil>=2.8.2 in /usr/local/lib/python3.13/dist-packages (from pandas>=1.0.0->ucimlrepo) (2.9.0.post0)
+Requirement already satisfied: pytz>=2020.1 in /usr/local/lib/python3.13/dist-packages (from pandas>=1.0.0->ucimlrepo) (2025.2)
+Requirement already satisfied: tzdata>=2022.7 in /usr/local/lib/python3.13/dist-packages (from pandas>=1.0.0->ucimlrepo) (2026.6)
+Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.13/dist-packages (from python-dateutil>=2.8.2->pandas>=1.0.0->ucimlrepo) (1.17.0)
+Downloading ucimlrepo-0.0.7-py3-none-any.whl (8.0 kB)
+Installing collected packages: ucimlrepo
+Successfully installed ucimlrepo-0.0.7
+
+
+ORIGINAL CELL 2
+/usr/local/lib/python3.13/dist-packages/ucimlrepo/fetch.py:97: DtypeWarning: Columns (2,3,4,5,6,7) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(data_url)
+
+
+ORIGINAL CELL 6
+25979
+
+
+ORIGINAL CELL 7
+Missing readings: 1.25%
+
+
+ORIGINAL CELL 10
+Total hours: 34589
+Usable hours: 34085
+Incomplete hours: 504
+
+
+ORIGINAL CELL 11
+Duplicate timestamps: 0
+
+
+ORIGINAL CELL 15
+Usable prediction examples: 34016
+
+
+ORIGINAL CELL 16
+Training examples: 17405
+Validation examples: 8656
+Testing examples: 7594
+
+
+ORIGINAL CELL 18
+Persistence MAE: 0.4284 kW
+
+
+ORIGINAL CELL 21
+a: 0.7213429241788861
+b: 0.30421590168512125
+
+
+ORIGINAL CELL 22
+Linear Regression MAE: 0.4322 kW
+
+
+ORIGINAL CELL 25
+Training examples: 17341
+Validation examples: 8602
+
+
+ORIGINAL CELL 26
+Previous-hour coefficient: 0.6494845385147217
+Previous-day coefficient: 0.19202255446295274
+Intercept: 0.17274612172070036
+
+
+ORIGINAL CELL 27
+Two-input Linear Regression MAE: 0.4131 kW
+Persistence MAE on the same rows: 0.4291 kW
+
+
+ORIGINAL CELL 28
+One-input Linear Regression MAE: 0.4328 kW
+
+
+ORIGINAL CELL 29
+Matched one-input MAE: 0.4328 kW
+
+
+ORIGINAL CELL 34
+Training examples: 17341
+Validation examples: 8602
+
+
+ORIGINAL CELL 35
+Four-input Linear Regression MAE: 0.4069 kW
+
+
+ORIGINAL CELL 37
+Random Forest training complete.
+
+
+ORIGINAL CELL 38
+Random Forest MAE: 0.3689 kW
+Four-input Linear Regression MAE: 0.4069 kW
+
+
+ORIGINAL CELL 40
+Inputs scaled successfully.
+
+
+ORIGINAL CELL 41
+Neural network training complete.
+
+
+ORIGINAL CELL 42
+Neural Network MAE: 0.3711 kW
+Random Forest MAE: 0.3689 kW
+Linear Regression MAE: 0.4069 kW
+
+
+ORIGINAL CELL 44
+First training example as angles:
+[ 1.12915275 -0.41229135 -0.00403675  0.95460469]
+
+
+ORIGINAL CELL 45
+Collecting qiskit
+  Downloading qiskit-2.6.1-cp310-abi3-manylinux_2_28_x86_64.whl.metadata (14 kB)
+Requirement already satisfied: numpy<3,>=2.0 in /usr/local/lib/python3.13/dist-packages (from qiskit) (2.4.6)
+Requirement already satisfied: scipy>=1.14 in /usr/local/lib/python3.13/dist-packages (from qiskit) (1.16.3)
+Collecting rustworkx>=0.15.0 (from qiskit)
+  Downloading rustworkx-0.18.1-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (10 kB)
+Requirement already satisfied: dill>=0.3 in /usr/local/lib/python3.13/dist-packages (from qiskit) (0.4.1)
+Collecting stevedore>=3.0.0 (from qiskit)
+  Downloading stevedore-5.9.1-py3-none-any.whl.metadata (2.3 kB)
+Requirement already satisfied: typing-extensions in /usr/local/lib/python3.13/dist-packages (from qiskit) (4.16.0)
+Downloading qiskit-2.6.1-cp310-abi3-manylinux_2_28_x86_64.whl (9.6 MB)
+[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m9.6/9.6 MB[0m [31m42.9 MB/s[0m  [33m0:00:00[0m
+[?25hDownloading rustworkx-0.18.1-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (2.4 MB)
+[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m2.4/2.4 MB[0m [31m83.7 MB/s[0m  [33m0:00:00[0m
+[?25hDownloading stevedore-5.9.1-py3-none-any.whl (54 kB)
+Installing collected packages: stevedore, rustworkx, qiskit
+[2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m3/3[0m [qiskit]
+[1A[2KSuccessfully installed qiskit-2.6.1 rustworkx-0.18.1 stevedore-5.9.1
+
+
+ORIGINAL CELL 46
+Qiskit version: 2.6.1
+
+
+ORIGINAL CELL 50
+Starting trainable angles:
+[ 0.27395605 -0.06112156  0.35859792  0.19736803]
+
+
+ORIGINAL CELL 51
+Probability of 0: 0.5283
+Probability of 1: 0.4717
+
+
+ORIGINAL CELL 52
+Quantum output: 0.0567
+
+
+ORIGINAL CELL 53
+Untrained prediction: 1.1133 kW
+Actual demand: 2.5506 kW
+Absolute error: 1.4373 kW
+
+
+ORIGINAL CELL 54
+Quantum output: 0.0567
+
+
+ORIGINAL CELL 55
+Initial MSE on 10 training examples: 2.1190 kW²
+
+
+ORIGINAL CELL 56
+Before training: 2.1190 kW²
+After training: 0.0020 kW²
+Optimizer message: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+
+ORIGINAL CELL 58
+Quantum training examples: 500
+Examples per year: {2007: 256, 2008: 244}
+
+
+ORIGINAL CELL 59
+Starting training MSE: 1.5965 kW²
+Final training MSE: 0.4736 kW²
+Iterations: 20
+Optimizer message: CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL
+
+
+ORIGINAL CELL 60
+Quantum model validation MAE: 0.4450 kW
+
+
+ORIGINAL CELL 61
+Linear Regression (500 examples) MAE: 0.4147 kW
+Quantum model (500 examples) MAE: 0.4450 kW
+
+
+ORIGINAL CELL 62
+Random Forest (500 examples) MAE: 0.4243 kW
+
+
+ORIGINAL CELL 63
+Neural Network (500 examples) MAE: 0.3905 kW
+/usr/local/lib/python3.13/dist-packages/sklearn/neural_network/_multilayer_perceptron.py:691: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (500) reached and the optimization hasn't converged yet.
+  warnings.warn(
+
+
+ORIGINAL CELL 67
+Untrained circuit output: 0.2676
+
+
+ORIGINAL CELL 68
+Starting training MSE: 1.8990 kW²
+
+
+ORIGINAL CELL 69
+Starting training MSE: 1.8990 kW²
+Final training MSE: 0.4215 kW²
+Iterations: 50
+Training time: 465.2 seconds
+Optimizer success: False
+Optimizer message: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+
+ORIGINAL CELL 70
+Two-block quantum model validation MAE: 0.4177 kW
+First quantum model validation MAE: 0.4450 kW
+
+
+ORIGINAL CELL 73
+Previous training MSE: 0.4215 kW²
+New training MSE: 0.4214 kW²
+Additional iterations: 50
+Additional training time: 476.6 seconds
+Optimizer success: False
+Optimizer message: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+
+ORIGINAL CELL 74
+Original validation MAE: 0.4177 kW
+Extended-training validation MAE: 0.4186 kW
+Total training time: 941.8 seconds
+
+
+ORIGINAL CELL 76
+Training started. Please let this cell finish.
+Iteration 1/50 | Elapsed: 16 seconds
+Iteration 5/50 | Elapsed: 47 seconds
+Iteration 10/50 | Elapsed: 88 seconds
+Iteration 15/50 | Elapsed: 128 seconds
+Iteration 20/50 | Elapsed: 177 seconds
+Iteration 25/50 | Elapsed: 242 seconds
+Iteration 30/50 | Elapsed: 282 seconds
+Iteration 35/50 | Elapsed: 346 seconds
+Iteration 40/50 | Elapsed: 386 seconds
+Iteration 45/50 | Elapsed: 435 seconds
+Iteration 50/50 | Elapsed: 483 seconds
+Training finished. Checking validation predictions...
+
+Seed 7 training MSE: 0.4230 kW²
+Seed 7 validation MAE: 0.4191 kW
+Seed 42 validation MAE: 0.4177 kW
+Training time: 482.7 seconds
+Iterations: 50
+Optimizer success: False
+Optimizer message: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+
+ORIGINAL CELL 79
+Training examples: 500
+Validation examples: 8602
+Examples used to fit scaler: 500
+Input features: ['previous_hour_kw', 'previous_day_kw', 'hour_sin', 'hour_cos']
+Preprocessing checks passed.
+
+
+ORIGINAL CELL 81
+Seed 42 complete | Validation MAE: 0.3917 kW
+Seed 7 complete | Validation MAE: 0.3938 kW
+Seed 21 complete | Validation MAE: 0.3944 kW
+Seed 123 complete | Validation MAE: 0.4044 kW
+Seed 2026 complete | Validation MAE: 0.3954 kW
+Mean validation MAE: 0.3960 kW
+Sample standard deviation: 0.0049 kW
+
+
+ORIGINAL CELL 83
+Seed 42 complete | Validation MAE: 0.4243 kW
+Seed 7 complete | Validation MAE: 0.4266 kW
+Seed 21 complete | Validation MAE: 0.4234 kW
+Seed 123 complete | Validation MAE: 0.4220 kW
+Seed 2026 complete | Validation MAE: 0.4208 kW
+Mean validation MAE: 0.4234 kW
+Sample standard deviation: 0.0023 kW
+
+
+ORIGINAL CELL 84
+Training two-block VQC with corrected inputs...
+Iteration 1/50 | 17 seconds
+Iteration 10/50 | 105 seconds
+Iteration 20/50 | 202 seconds
+Iteration 30/50 | 292 seconds
+Iteration 40/50 | 390 seconds
+Iteration 50/50 | 478 seconds
+Training finished. Evaluating validation data...
+Training MSE: 0.4177 kW²
+Validation MAE: 0.4149 kW
+Training time: 478.4 seconds
+Iterations: 50
+Optimizer success: False
+Optimizer message: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT

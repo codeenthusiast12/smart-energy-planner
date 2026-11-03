@@ -1,0 +1,12 @@
+model,seed,mae_kw,protocol,evaluation_year,evaluation_rows,original_notebook_cell,provenance
+MLP,42,0.3917,corrected_500_scaler,2009,8602,81,rounded printed output
+MLP,7,0.3938,corrected_500_scaler,2009,8602,81,rounded printed output
+MLP,21,0.3944,corrected_500_scaler,2009,8602,81,rounded printed output
+MLP,123,0.4044,corrected_500_scaler,2009,8602,81,rounded printed output
+MLP,2026,0.3954,corrected_500_scaler,2009,8602,81,rounded printed output
+Random Forest,42,0.4243,corrected_500_scaler,2009,8602,83,rounded printed output
+Random Forest,7,0.4266,corrected_500_scaler,2009,8602,83,rounded printed output
+Random Forest,21,0.4234,corrected_500_scaler,2009,8602,83,rounded printed output
+Random Forest,123,0.4220,corrected_500_scaler,2009,8602,83,rounded printed output
+Random Forest,2026,0.4208,corrected_500_scaler,2009,8602,83,rounded printed output
+Two-block VQC,42,0.4149,corrected_500_scaler,2009,8602,84,rounded printed output; iteration limit reached

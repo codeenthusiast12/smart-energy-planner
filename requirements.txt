@@ -1,0 +1,11 @@
+# Imported dependencies, not a fully verified environment lock.
+# Qiskit version observed in the uploaded experiment.
+qiskit==2.6.0
+numpy
+pandas
+scipy
+scikit-learn
+matplotlib
+ucimlrepo
+ipython
+nbformat
